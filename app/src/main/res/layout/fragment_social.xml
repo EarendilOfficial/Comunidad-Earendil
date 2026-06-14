@@ -1,39 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="14dp">
+    android:background="@color/azul"
+    android:padding="16dp">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tvSocialTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Social"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etBuscar"
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilBuscar"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Buscar publicación"/>
+        android:layout_marginTop="16dp"
+        android:hint="Buscar publicación"
+        android:textColorHint="@color/gris"
+        app:boxStrokeColor="@color/naranja"
+        app:hintTextColor="@color/naranja"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSocialTitle"
+        app:startIconDrawable="@android:drawable/ic_menu_search"
+        app:startIconTint="@color/gris">
 
-    <Button
-        android:id="@+id/btnBuscar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BUSCAR"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/contenedorPublicaciones"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etBuscar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    </ScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBuscar"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:text="IR"
+        app:layout_constraintBottom_toBottomOf="@+id/tilBuscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tilBuscar" />
 
-</LinearLayout>
+    <!-- RecyclerView para las publicaciones (Reemplaza al ScrollView + LinearLayout) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPublicaciones"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilBuscar"
+        tools:listitem="@layout/item_publicacion" />
+
+    <!-- Mantengo este ID por si la lógica vieja lo busca, pero oculto ya que usaremos el RV -->
+    <LinearLayout
+        android:id="@+id/contenedorPublicaciones"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

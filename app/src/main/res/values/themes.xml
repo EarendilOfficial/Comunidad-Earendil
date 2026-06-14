@@ -1,5 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ComunidadEarendil" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color (Orange for buttons) -->
+        <item name="colorPrimary">@color/naranja</item>
+        <item name="colorPrimaryVariant">@color/naranjita</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/verde</item>
+        <item name="colorSecondaryVariant">@color/verde</item>
+        <item name="colorOnSecondary">@color/white</item>
 
-    <style name="Theme.ComunidadEarendil" parent="Theme.MaterialComponents.DayNight.NoActionBar"/>
+        <!-- Default Text Colors for dark background -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/gris</item>
+        <item name="android:editTextColor">@color/white</item>
+        
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/azul</item>
+        
+        <!-- Background colors -->
+        <item name="android:windowBackground">@color/azul</item>
+    </style>
+
+    <style name="Theme.ComunidadEarendil.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.ComunidadEarendil.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
