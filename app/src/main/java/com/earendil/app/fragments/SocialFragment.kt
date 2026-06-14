@@ -1,4 +1,4 @@
-package com.example.earendil.fragments
+package com.earendil.app.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
