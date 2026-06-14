@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blanco">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:text="Bienvenido"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="@color/azul_oscuro"/>
+            android:textColor="@color/azul"/>
 
         <TextView
             android:layout_width="match_parent"
