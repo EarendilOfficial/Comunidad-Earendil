@@ -1,0 +1,23 @@
+# Android Studio Cache
+.idea/
+.navigation/
+*.iml
+local.properties
+
+.gradle/
+build/
+
+# Misc
+.DS_Store
+/captures
+.externalNativeBuild
+.cxx
+Thumbs.db
+.vs/
+
+# Logs
+*.log
+
+# Claves
+*.jks
+*.keystore
