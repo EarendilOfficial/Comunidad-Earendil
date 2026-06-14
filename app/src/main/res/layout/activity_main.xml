@@ -14,15 +14,6 @@
         android:orientation="vertical"
         android:background="@color/azul">
 
-        <!-- Necesitaremos un Toolbar para el icono de hamburguesa -->
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/azulito"
-            app:titleTextColor="@color/white"
-            app:navigationIcon="@android:drawable/ic_menu_sort_by_size" />
-
         <FrameLayout
             android:id="@+id/contenedorFragments"
             android:layout_width="match_parent"
@@ -39,15 +30,16 @@
             app:menu="@menu/menu_inferior"/>
     </LinearLayout>
 
-    <!-- El Menú Lateral -->
+    <!-- El Menú Lateral (DERECHA) -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
+        android:layout_gravity="end"
         android:background="@color/azulito"
         app:itemTextColor="@color/white"
         app:itemIconTint="@color/naranja"
+        app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
