@@ -1,4 +1,4 @@
-package com.example.earendil.fragments
+package com.earendil.app.fragments
 
 import android.app.Activity
 import android.content.Intent

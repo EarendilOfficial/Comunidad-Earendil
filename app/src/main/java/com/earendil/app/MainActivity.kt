@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.activity.enableEdgeToEdge
-import com.example.earendil.fragments.InicioFragment
-import com.example.earendil.fragments.MasFragment
-import com.example.earendil.fragments.NuevaPublicacionFragment
-import com.example.earendil.fragments.PerfilFragment
-import com.example.earendil.fragments.SocialFragment
+import com.earendil.app.fragments.InicioFragment
+import com.earendil.app.fragments.MasFragment
+import com.earendil.app.fragments.NuevaPublicacionFragment
+import com.earendil.app.fragments.PerfilFragment
+import com.earendil.app.fragments.SocialFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
