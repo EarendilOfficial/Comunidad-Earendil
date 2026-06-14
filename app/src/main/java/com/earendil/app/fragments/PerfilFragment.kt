@@ -13,7 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.earendil.app.R
-import com.earendil.app.fragments.LoginActivity
+import com.earendil.app.LoginActivity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 import kotlin.math.sqrt
