@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_inicio -> cargarFragment(InicioFragment())
                 R.id.nav_social -> cargarFragment(SocialFragment())
-                R.id.nav_publicar -> cargarFragment(NuevaPublicacionFragment())
                 R.id.nav_perfil -> cargarFragment(PerfilFragment())
                 R.id.nav_mas -> cargarFragment(MasFragment())
             }
