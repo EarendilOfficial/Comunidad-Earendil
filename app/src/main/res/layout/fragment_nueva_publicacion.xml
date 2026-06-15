@@ -1,55 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="18dp">
+    android:background="@color/azul"
+    android:fillViewport="true">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:padding="24dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nueva publicación"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/etTitulo"
-            android:layout_width="match_parent"
+        <!-- Input para el Título -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTitulo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Título"/>
+            android:layout_marginTop="24dp"
+            android:hint="Título de la publicación"
+            android:textColorHint="@color/gris"
+            app:boxStrokeColor="@color/naranja"
+            app:hintTextColor="@color/naranja"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
-        <EditText
-            android:id="@+id/etDescripcion"
-            android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Input para la Descripción -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDescripcion"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Descripción"
-            android:minLines="4"/>
+            android:layout_marginTop="16dp"
+            android:hint="¿Qué estás pensando?"
+            android:textColorHint="@color/gris"
+            app:boxStrokeColor="@color/naranja"
+            app:hintTextColor="@color/naranja"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilTitulo">
 
-        <ImageView
-            android:id="@+id/imgFoto"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:minLines="4"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botones de Imagen -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCamara"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="CÁMARA"
+            android:textColor="@color/white"
+            app:icon="@android:drawable/ic_menu_camera"
+            app:iconTint="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/btnGaleria"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilDescripcion"
+            app:strokeColor="@color/naranja" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGaleria"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="GALERÍA"
+            android:textColor="@color/white"
+            app:icon="@android:drawable/ic_menu_gallery"
+            app:iconTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnCamara"
+            app:layout_constraintTop_toTopOf="@+id/btnCamara"
+            app:strokeColor="@color/naranja" />
+
+        <!-- Preview de Imagen -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvPreview"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:background="#DDDDDD"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/azulito"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnCamara"
+            app:strokeColor="@color/naranja"
+            app:strokeWidth="1dp">
 
-        <Button
-            android:id="@+id/btnCamara"
+            <ImageView
+                android:id="@+id/ivPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_report_image"
+                app:tint="@color/gris" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPublicar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TOMAR FOTO CON CÁMARA"/>
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:text="PUBLICAR EN LA COMUNIDAD"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvPreview"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="32dp" />
 
-        <Button
-            android:id="@+id/btnGuardar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="GUARDAR EN FIREBASE"
-            android:backgroundTint="@color/naranja"/>
-
-    </LinearLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

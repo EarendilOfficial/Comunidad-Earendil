@@ -2,75 +2,58 @@ package com.earendil.app.fragments
 
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.earendil.app.R
-import com.earendil.app.utils.NotificationHelper
+import com.earendil.app.adapters.MensajesAdapter
+import com.example.comunidadmce.models.Mensaje
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
 class MensajesFragment : Fragment(R.layout.fragment_mensajes) {
 
-//    private val db = FirebaseFirestore.getInstance()
     private lateinit var etMensaje: EditText
-    private lateinit var contenedor: LinearLayout
+    private lateinit var rvMensajes: RecyclerView
+    private lateinit var adapter: MensajesAdapter
+    private val listaMensajes = mutableListOf<Mensaje>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 1. Vinculamos las vistas (Aquí estaba el error del Cast)
         etMensaje = view.findViewById(R.id.etMensaje)
-        contenedor = view.findViewById(R.id.contenedorMensajes)
+        rvMensajes = view.findViewById(R.id.rvMensajes)
+        val btnBuscar = view.findViewById<Button>(R.id.btnBuscar)
+        val fabNuevoChat = view.findViewById<FloatingActionButton>(R.id.fabNuevoChat)
 
-        view.findViewById<Button>(R.id.btnEnviar).setOnClickListener {
-            enviarMensaje()
+        // 2. Configuramos el RecyclerView con su Adapter
+        adapter = MensajesAdapter(listaMensajes)
+        rvMensajes.adapter = adapter
+
+        // 3. Lógica de los botones
+        btnBuscar.setOnClickListener {
+            val texto = etMensaje.text.toString()
+            if (texto.isNotEmpty()) {
+                Toast.makeText(requireContext(), "Buscando: $texto", Toast.LENGTH_SHORT).show()
+                // Aquí iría tu lógica de filtrado de Firebase
+            }
         }
 
-        cargarMensajes()
-    }
-
-    private fun enviarMensaje() {
-        val texto = etMensaje.text.toString()
-
-        if (texto.isBlank()) {
-            Toast.makeText(requireContext(), "Escribe un mensaje", Toast.LENGTH_SHORT).show()
-            return
+        fabNuevoChat.setOnClickListener {
+            Toast.makeText(requireContext(), "Iniciando nuevo chat...", Toast.LENGTH_SHORT).show()
         }
 
-        val usuario = "FirebaseAuth.getInstance().currentUser"
-
-        val datos = hashMapOf(
-            "texto" to texto,
-            "autor" to (usuario ?: "Jugador"),
-            "fecha" to System.currentTimeMillis()
-        )
-
-//        db.collection("mensajes")
-//            .add(datos)
-//            .addOnSuccessListener {
-//                etMensaje.text.clear()
-//                NotificationHelper.mostrarNotificacion(
-//                    requireContext(),
-//                    "Nuevo mensaje",
-//                    "Se envió un mensaje correctamente."
-//                )
-//            }
+        // 4. Cargamos los datos (puedes llamar aquí a tu lógica de Firebase)
+        simularDatos()
     }
 
-    private fun cargarMensajes() {
-//        db.collection("mensajes")
-//            .addSnapshotListener { resultado, _ ->
-//                contenedor.removeAllViews()
-//
-//                resultado?.forEach { doc ->
-//                    val mensaje = Mensaje(
-//                        id = doc.id,
-//                        texto = doc.getString("texto") ?: "",
-//                        autor = doc.getString("autor") ?: "",
-//                        fecha = doc.getLong("fecha") ?: 0
-//                    )
-//
-//                    val tv = TextView(requireContext())
-//                    tv.text = "${mensaje.autor}: ${mensaje.texto}"
-//                    tv.textSize = 16f
-//                    tv.setPadding(10, 10, 10, 10)
-//
-//                    contenedor.addView(tv)
-//                }
-//            }
+    private fun simularDatos() {
+        listaMensajes.clear()
+        listaMensajes.add(Mensaje("1", "¡Bienvenido a la comunidad Earendil!", "Sistema", System.currentTimeMillis()))
+        listaMensajes.add(Mensaje("2", "Tengo un nuevo objeto para cambiar", "Samm", System.currentTimeMillis() - 3600000))
+        listaMensajes.add(Mensaje("3", "La reunión es a las 8 PM", "Admin", System.currentTimeMillis() - 7200000))
+        adapter.notifyDataSetChanged()
     }
 }
