@@ -45,6 +45,9 @@ interface ApiService {
     @DELETE("/api/posts/{id}")
     suspend fun deletePost(@Path("id") id: String): Response<ActionResponse>
 
+    @GET("/api/get_my_data")
+    suspend fun getMyUserData(): Response<UserDataResponse>
+
     // Ruta protegida enviando el Token en los Headers de forma nativa en móviles
 //    @GET("/protected-route")
 //    suspend fun getProtectedData(@Header("Authorization") token: String): Response<DataResponse>
@@ -76,3 +79,9 @@ data class PostResponse(val successful: Boolean, val reason: String)
 data class GetPostsResponse(val successful: Boolean, val posts: List<Publicacion>?, val reason: String?)
 data class ActionResponse(val successful: Boolean, val reason: String)
 data class UpdatePostRequest(val description: String)
+
+data class UserDataResponse(
+    val username: String,
+    val mail: String,
+    val uit: String?
+)

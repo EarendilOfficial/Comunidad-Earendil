@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.earendil.app.fragments.InicioFragment
+import com.earendil.app.fragments.MasFragment
 import com.earendil.app.fragments.MensajesFragment
 import com.earendil.app.fragments.NotificationsFragment
 import com.earendil.app.fragments.PerfilFragment
@@ -81,6 +82,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_logout -> {
                     closeSession()
+                }
+                R.id.Extras1 -> {
+                    cargarFragment(MasFragment())
+                }
+                R.id.Extras2 -> {
+                    // Puedes agregar más casos según tus necesidades
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.END)

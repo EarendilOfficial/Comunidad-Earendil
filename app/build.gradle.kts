@@ -59,6 +59,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.core.ktx)
     implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

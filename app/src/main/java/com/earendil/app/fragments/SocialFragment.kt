@@ -62,6 +62,7 @@ class SocialFragment : Fragment(R.layout.fragment_social) {
                 val queryParam = if (filtro.isBlank()) null else filtro
                 val response = apiService.getPosts(queryParam)
 
+                Log.d("REASON -- ", response.body()?.reason ?: "No reason")
                 if (response.isSuccessful && response.body()?.successful == true) {
                     val listaPosts = response.body()?.posts ?: emptyList()
 

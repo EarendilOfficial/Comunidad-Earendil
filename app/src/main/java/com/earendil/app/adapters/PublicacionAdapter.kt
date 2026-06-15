@@ -45,7 +45,7 @@ class PublicacionAdapter(
         // Controlar la imagen desde el servidor
         if (!post.imageUrl.isNullOrBlank()) {
             holder.ivFoto.visibility = View.VISIBLE
-            val urlCompleta = "http://10.0.2.2:6294${post.imageUrl}"
+            val urlCompleta = "https://earendil.ceticlub.fun${post.imageUrl}"
             Glide.with(holder.itemView.context).load(urlCompleta).into(holder.ivFoto)
         } else {
             holder.ivFoto.visibility = View.GONE

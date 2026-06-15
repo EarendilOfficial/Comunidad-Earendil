@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "1076977723843-8jauuv6n4her9rlg48qv7j0psq3oqss8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.earendil.app",
+            "certificate_hash": "cf7ee65f83dcaab88cbeb0772335d0288c86e4cf"
+          }
+        },
+        {
+          "client_id": "1076977723843-jo6pnrvpfkos167dec9b5394lh333g5g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.earendil.app",
+            "certificate_hash": "9d20b29f6f558919053494fd4d3973992eab0cca"
+          }
+        },
+        {
           "client_id": "1076977723843-tgvsoid6uh0ac7e0ptnqqfvalvv7ou8h.apps.googleusercontent.com",
           "client_type": 3
         }
