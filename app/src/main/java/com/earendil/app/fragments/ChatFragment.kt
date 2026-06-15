@@ -1,60 +1,65 @@
 package com.earendil.app.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.*
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.earendil.app.R
+import com.earendil.app.adapters.ChatAdapter
+import com.earendil.app.models.Mensaje
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ChatFragment : Fragment(R.layout.fragment_chat) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ChatFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ChatFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var rvChat: RecyclerView
+    private lateinit var etMessage: EditText
+    private lateinit var btnSend: ImageButton
+    private lateinit var adapter: ChatAdapter
+    private val mensajes = mutableListOf<Mensaje>()
+    private val db = FirebaseFirestore.getInstance()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        rvChat = view.findViewById(R.id.rvChat)
+        etMessage = view.findViewById(R.id.etMessage)
+        btnSend = view.findViewById(R.id.btnSend)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat, container, false)
-    }
+        adapter = ChatAdapter(mensajes)
+        rvChat.adapter = adapter
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ChatFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ChatFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        // ESCUCHAR TIEMPO REAL
+        db.collection("chats").document("general").collection("mensajes")
+            .orderBy("fecha", Query.Direction.ASCENDING)
+            .addSnapshotListener { snapshot, _ ->
+                if (snapshot != null) {
+                    mensajes.clear()
+                    for (doc in snapshot.documents) {
+                        val m = doc.toObject(Mensaje::class.java)
+                        if (m != null) mensajes.add(m)
+                    }
+                    adapter.notifyDataSetChanged()
+                    rvChat.scrollToPosition(mensajes.size - 1)
                 }
             }
+
+        btnSend.setOnClickListener {
+            val texto = etMessage.text.toString()
+            if (texto.isNotBlank()) {
+                val user = FirebaseAuth.getInstance().currentUser?.displayName ?: "Jugador"
+                val nuevoMensaje = Mensaje(
+                    id = "",
+                    texto = texto,
+                    autor = user,
+                    fecha = System.currentTimeMillis()
+                )
+
+                db.collection("chats").document("general").collection("mensajes")
+                    .add(nuevoMensaje)
+
+                etMessage.text.clear()
+            }
+        }
     }
 }

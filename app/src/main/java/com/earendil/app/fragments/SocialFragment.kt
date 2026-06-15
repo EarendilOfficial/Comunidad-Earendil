@@ -121,7 +121,7 @@ class SocialFragment : Fragment(R.layout.fragment_social) {
                     Toast.makeText(requireContext(), "Publicación actualizada", Toast.LENGTH_SHORT).show()
                     cargarPublicaciones(etBuscar.text.toString()) // Recargar manteniendo el filtro actual
                 } else {
-                    Toast.makeText(requireContext(), "No tienes permisos para editar este post ❌", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "No tienes permisos para editar este post", Toast.LENGTH_LONG).show()
                 }
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Error de red", Toast.LENGTH_SHORT).show()
@@ -140,7 +140,7 @@ class SocialFragment : Fragment(R.layout.fragment_social) {
                     Toast.makeText(requireContext(), "Publicación eliminada", Toast.LENGTH_SHORT).show()
                     cargarPublicaciones("") // Resetear la vista limpia
                 } else {
-                    Toast.makeText(requireContext(), "No tienes permisos para eliminar este post ❌", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "No tienes permisos para eliminar este post", Toast.LENGTH_LONG).show()
                 }
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Error de red", Toast.LENGTH_SHORT).show()
