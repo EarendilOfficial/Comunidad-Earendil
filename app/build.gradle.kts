@@ -79,4 +79,7 @@ dependencies {
     implementation("androidx.credentials:credentials:1.7.0-alpha02")
     implementation("androidx.credentials:credentials-play-services-auth:1.7.0-alpha02")
     implementation("com.google.android.libraries.identity.googleid:googleid:1.2.0")
+
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.earendil.app.R
 import com.earendil.app.adapters.MensajesAdapter
-import com.example.comunidadmce.models.Mensaje
+import com.earendil.app.models.Mensaje
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MensajesFragment : Fragment(R.layout.fragment_mensajes) {
