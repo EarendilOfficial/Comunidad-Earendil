@@ -23,13 +23,13 @@ class NuevaPublicacionFragment : Fragment(R.layout.fragment_nueva_publicacion) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         etTitulo = view.findViewById(R.id.etTitulo)
         etDescripcion = view.findViewById(R.id.etDescripcion)
-        imgFoto = view.findViewById(R.id.ivPreview)
+        imgFoto = view.findViewById(R.id.imgFoto)
 
         view.findViewById<Button>(R.id.btnCamara).setOnClickListener {
             abrirCamara()
         }
 
-        view.findViewById<Button>(R.id.btnPublicar).setOnClickListener {
+        view.findViewById<Button>(R.id.btnGuardar).setOnClickListener {
             guardarPublicacion()
         }
     }

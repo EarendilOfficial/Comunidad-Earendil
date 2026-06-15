@@ -15,6 +15,11 @@ class InicioFragment : Fragment(R.layout.fragment_inicio) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val usuario = "!"
+        val tvBienvenida = view.findViewById<TextView>(R.id.tvBienvenida)
+        val btnRecompensa = view.findViewById<Button>(R.id.btnRecompensa)
+        val btnAlarma = view.findViewById<Button>(R.id.btnAlarma)
+
+        tvBienvenida.text = "Bienvenido, ${usuario ?: "Jugador"}"
 
 //        btnRecompensa.setOnClickListener {
 //            NotificationHelper.mostrarNotificacion(
