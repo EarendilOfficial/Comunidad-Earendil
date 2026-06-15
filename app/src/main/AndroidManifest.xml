@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ComunidadEarendil">
         <activity
-            android:name=".fragments.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

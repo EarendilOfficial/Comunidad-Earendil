@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1076977723843",
+    "project_id": "earendil-community",
+    "storage_bucket": "earendil-community.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076977723843:android:839948065a4f99a6533576",
+        "android_client_info": {
+          "package_name": "com.earendil.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1076977723843-tgvsoid6uh0ac7e0ptnqqfvalvv7ou8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqcaYOSjMubydYl76YrGyzVxWXIyw4CIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076977723843-tgvsoid6uh0ac7e0ptnqqfvalvv7ou8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

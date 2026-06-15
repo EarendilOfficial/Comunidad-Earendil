@@ -1,11 +1,9 @@
-package com.earendil.app.fragments
+package com.earendil.app
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.earendil.app.MainActivity
-import com.earendil.app.R
 
 class LoginActivity : AppCompatActivity() {
 
