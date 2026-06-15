@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val BASE_URL = "http://10.0.2.2:6294/" // TODO: Change to real IP of database
+    private const val BASE_URL = "https://earendil.ceticlub.fun/" // TODO: Change to real IP of database
 
     fun create(tokenProvider: () -> String?): ApiService {
 

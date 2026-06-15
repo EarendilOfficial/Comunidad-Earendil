@@ -19,8 +19,9 @@ suspend fun signInWithGoogleAndFirebase(context: Context): String? {
 
     // 1. Configurar la petición usando tu Web Client ID de Firebase
     val googleIdOption = GetGoogleIdOption.Builder()
-        .setFilterByAuthorizedAccounts(false) // Ponlo en false si quieres forzar a que elija cuenta la primera vez
         .setServerClientId("1076977723843-tgvsoid6uh0ac7e0ptnqqfvalvv7ou8h.apps.googleusercontent.com")
+        .setFilterByAuthorizedAccounts(false) // Ponlo en false si quieres forzar a que elija cuenta la primera vez
+        .setAutoSelectEnabled(false)
         .build()
 
     val request = GetCredentialRequest.Builder()
@@ -29,21 +30,31 @@ suspend fun signInWithGoogleAndFirebase(context: Context): String? {
 
     try {
         // 2. Lanzar la interfaz de Credential Manager
+        Log.d("AUTH", "Iniciando Credential Manager...")
         val result = credentialManager.getCredential(context = context, request = request)
+        Log.d("AUTH", "Credential Manager retornó resultado")
         val credential = result.credential
 
         // 3. Validar si la credencial es un Token de Identidad de Google
         if (credential.type == TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
 
             // Extraer de forma segura el ID Token de Google
+            Log.d("AUTH", "Iniciando GoogleIdTokenCredential...")
             val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(credential.data)
             val idToken = googleIdTokenCredential.idToken
+            Log.d("AUTH", "GoogleIdTokenCredential retornó token")
+
 
             // 4. GENERAR LA CREDENCIAL DE FIREBASE Y HACER EL LOGIN
+            Log.d("AUTH", "GoogleAuthProvider getCredential ?...")
             val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
+            Log.d("AUTH", "GoogleAuthProvider")
 
             // Usamos .await() de kotlinx-coroutines-play-services para mantenerlo asíncrono
+            Log.d("AUTH", "Esperando firebaseAuth.signInWithCredential(firebaseCredential).await()")
             val authResult = firebaseAuth.signInWithCredential(firebaseCredential).await()
+            Log.d("AUTH", "signInWithCredential retornó resultado")
+
             val firebaseUser = authResult.user
 
             Log.d("AUTH", "¡Login exitoso en Firebase! Bienvenido: ${firebaseUser?.displayName}")

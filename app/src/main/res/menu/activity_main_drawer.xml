@@ -14,6 +14,14 @@
             android:id="@+id/Mensajes"
             android:icon="@drawable/home"
             android:title="Mensajes" />
+        <item
+            android:id="@+id/Extras1"
+            android:icon="@drawable/fingerprint_dialog_fp_icon"
+            android:title="Botonsitos UwU" />
+        <item
+            android:id="@+id/Extras2"
+            android:icon="@drawable/common_google_signin_btn_icon_light"
+            android:title="Mensajes" />
     </group>
 
     <item android:title="Otros">
