@@ -5,8 +5,7 @@ import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.earendil.app.R
-import com.example.comunidadmce.utils.NotificationHelper
-
+import com.earendil.app.utils.NotificationHelper
 class MensajesFragment : Fragment(R.layout.fragment_mensajes) {
 
 //    private val db = FirebaseFirestore.getInstance()

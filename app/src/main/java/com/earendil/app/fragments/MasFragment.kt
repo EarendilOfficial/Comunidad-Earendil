@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresPermission
 import androidx.fragment.app.Fragment
 import com.earendil.app.R
-
+import com.earendil.app.utils.NotificationHelper
 class MasFragment : Fragment(R.layout.fragment_mas) {
 
     private lateinit var tvResultado: TextView
@@ -20,12 +20,22 @@ class MasFragment : Fragment(R.layout.fragment_mas) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         tvResultado = view.findViewById(R.id.tvResultado)
 
+
         view.findViewById<Button>(R.id.btnNotificaciones).setOnClickListener {
-//            NotificationHelper.mostrarNotificacion(
-//                requireContext(),
-//                "Panel de notificaciones",
-//                "Notificación generada desde Comunidad MCE."
-//            )
+
+            NotificationHelper.mostrarNotificacion(
+                requireContext(),
+                "Comunidad Earendil",
+                "Esta es una notificación de prueba."
+            )
+        }
+
+        view.findViewById<Button>(R.id.btnHistorial).setOnClickListener {
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.contenedorFragments, NotificationsFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
 //        view.findViewById<Button>(R.id.btnUbicacion).setOnClickListener {
@@ -68,4 +78,5 @@ class MasFragment : Fragment(R.layout.fragment_mas) {
         ringtone.play()
         tvResultado.text = "Recurso multimedia de audio reproducido."
     }
+
 }
