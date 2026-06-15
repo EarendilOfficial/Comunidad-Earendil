@@ -89,11 +89,13 @@
             app:layout_constraintTop_toBottomOf="@+id/ivPublicacion">
 
             <ImageButton
-                android:id="@+id/ibtnLike"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/ibtnEdit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="centerInside"
+                android:layout_marginLeft="10dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:srcCompat="@drawable/ic_favorite"
+                app:srcCompat="@drawable/edit"
                 app:tint="@color/gris" />
 
             <TextView
@@ -104,20 +106,20 @@
                 android:textColor="@color/gris"
                 android:layout_marginEnd="16dp"/>
 
-            <ImageButton
-                android:id="@+id/ibtnComentar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                app:srcCompat="@android:drawable/stat_notify_chat"
-                app:tint="@color/gris" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/ibtnComentar"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--                app:srcCompat="@android:drawable/stat_notify_chat"-->
+<!--                app:tint="@color/gris" />-->
 
-            <TextView
-                android:id="@+id/tvCommentCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5"
-                android:textColor="@color/gris" />
+<!--            <TextView-->
+<!--                android:id="@+id/tvCommentCount"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="5"-->
+<!--                android:textColor="@color/gris" />-->
 
             <View
                 android:layout_width="0dp"
@@ -125,11 +127,11 @@
                 android:layout_weight="1" />
 
             <ImageButton
-                android:id="@+id/ibtnGuardar"
+                android:id="@+id/ibtnEliminar"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:srcCompat="@android:drawable/ic_input_get"
+                app:srcCompat="@android:drawable/ic_menu_delete"
                 app:tint="@color/gris" />
 
         </LinearLayout>

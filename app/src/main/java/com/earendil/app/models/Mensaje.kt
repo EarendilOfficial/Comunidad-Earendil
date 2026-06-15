@@ -1,4 +1,4 @@
-package com.example.comunidadmce.models
+package com.earendil.app.models
 
 data class Mensaje(
     var id: String = "",

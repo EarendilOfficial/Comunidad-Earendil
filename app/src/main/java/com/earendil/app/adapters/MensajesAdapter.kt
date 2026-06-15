@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.earendil.app.R
-import com.example.comunidadmce.models.Mensaje
+import com.earendil.app.models.Mensaje
 import java.text.SimpleDateFormat
 import java.util.*
 
