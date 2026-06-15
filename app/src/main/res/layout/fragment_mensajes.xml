@@ -1,72 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="14dp">
 
     <TextView
-        android:id="@+id/tvMensajesTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Mensajes"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilMensaje"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
+    <EditText
+        android:id="@+id/etMensaje"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:hint="Buscar mensaje"
-        android:textColorHint="@color/gris"
-        app:boxStrokeColor="@color/naranja"
-        app:hintTextColor="@color/naranja"
-        app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMensajesTitle"
-        app:startIconDrawable="@android:drawable/ic_menu_search"
-        app:startIconTint="@color/gris">
+        android:hint="Escribe un mensaje" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etMensaje"
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ENVIAR MENSAJE" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/contenedorMensajes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textShortMessage|textAutoCorrect"
-            android:textColor="@color/white" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnBuscar"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="BUSCAR"
-        app:cornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilMensaje"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilMensaje" />
+    </ScrollView>
 
-    <!-- RecyclerView para la lista de mensajes, ahora debajo de la entrada -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMensajes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:clipToPadding="false"
-        android:paddingBottom="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilMensaje"
-        tools:listitem="@layout/item_mensajes" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
