@@ -29,7 +29,14 @@ class MensajesFragment : Fragment(R.layout.fragment_mensajes) {
         val fabNuevoChat = view.findViewById<FloatingActionButton>(R.id.fabNuevoChat)
 
         // 2. Configuramos el RecyclerView con su Adapter
-        adapter = MensajesAdapter(listaMensajes)
+        adapter = MensajesAdapter(listaMensajes)  { mensaje ->
+            Toast.makeText(
+                requireContext(),
+                "Click en: ${mensaje.texto}",
+                Toast.LENGTH_SHORT
+            ).show()
+        } // TODO: Abrir el fragmento del chat
+
         rvMensajes.adapter = adapter
 
         // 3. Lógica de los botones

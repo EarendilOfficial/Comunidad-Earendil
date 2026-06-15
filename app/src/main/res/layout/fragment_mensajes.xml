@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:hint="Buscar mensaje"
+        android:hint="Buscar Usuario"
         android:textColorHint="@color/gris"
         app:boxStrokeColor="@color/naranja"
         app:hintTextColor="@color/naranja"
