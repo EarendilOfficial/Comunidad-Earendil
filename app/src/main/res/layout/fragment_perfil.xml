@@ -80,8 +80,7 @@
                 android:layout_height="match_parent"
                 android:padding="16dp"
                 android:scaleType="fitCenter"
-                android:src="@android:drawable/ic_menu_crop"
-                app:tint="@color/azul" />
+                android:src="@drawable/qr" />
 
             <TextView
                 android:id="@+id/tvQROculto"

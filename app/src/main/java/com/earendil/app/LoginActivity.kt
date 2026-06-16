@@ -42,6 +42,12 @@ class LoginActivity : AppCompatActivity() {
             it.isEnabled = false
             iniciarSesionGoogle(it as Button)
         }
+
+//        findViewById<Button>(R.id.btnRegistrar).setOnClickListener {
+//            startActivity(Intent(this, RegisterActivity::class.java))
+//        }
+//
+//        find
     }
 
     private fun iniciarSesionGoogle(btn: Button) {
